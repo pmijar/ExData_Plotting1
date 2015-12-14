@@ -20,13 +20,13 @@ Date_time <- dmy_hms(Date_time, tz ="EST")
 File_Column_Concat <- cbind(File1_Subset, Date_time)
 
 ## Plot the Histogram for Global Active Power
-
+par(mfrow=c(1,1), mar=c(4,4,2,1), oma=c(0,0,2,0), cex = 0.8, pty = "s")
 plot(File_Column_Concat$Date_time, File_Column_Concat$Sub_metering_1, col = "Black", xlab = "", ylab = "Energy sub metering", type = "l")
 lines(File_Column_Concat$Date_time, File_Column_Concat$Sub_metering_2, col = "Red")
 lines(File_Column_Concat$Date_time, File_Column_Concat$Sub_metering_3, col = "Blue")
-legend("topright",lwd=c(1,1), xjust = 1, cex = 0.7, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright",lwd=c(1,1), xjust = 1, cex = 0.8, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 
-## Saving histogram to png file format
+## Saving graph to png file format
 dev.copy(png, file="Plot3.png", height=480, width=480)
 dev.off()
